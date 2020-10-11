@@ -10,23 +10,18 @@ const slideStyle = {
   padding: "15px"
 };
 
-const notYetVotedComponent = "NOT YET VOTED";
-const noOpinionComponent = "NO OPINION";
-const disagreeComponent = "DISAGREE";
-const agreeComponent = "AGREE";
-
 const voteTypes = {
-  NotYetVoted: "NotYetVoted",
-  NoOpinion: "NoOpinion",
-  Disagree: "Disagree",
-  Agree: "Agree"
+  NotYetVoted: "NOT YET VOTED",
+  NoOpinion: "NO OPINION",
+  Disagree: "DISAGREE",
+  Agree: "AGREE"
 };
 
 export default function App() {
   const [vote, setVote] = useState(voteTypes.NotYetVoted);
 
   let voteIndex = 1;
-  let votingComponents = [disagreeComponent, agreeComponent];
+  let votingComponents = [voteTypes.Disagree, voteTypes.Agree];
   switch (vote) {
     case voteTypes.Agree:
       break;
@@ -34,10 +29,10 @@ export default function App() {
       voteIndex = 0;
       break;
     case voteTypes.NoOpinion:
-      votingComponents = [disagreeComponent, noOpinionComponent, agreeComponent];
+      votingComponents = [voteTypes.Disagree, voteTypes.NoOpinion, voteTypes.Agree];
       break;
     default:
-      votingComponents = [disagreeComponent, notYetVotedComponent, agreeComponent];
+      votingComponents = [voteTypes.Disagree, voteTypes.NotYetVoted, voteTypes.Agree];
       break;
   }
 
@@ -61,4 +56,3 @@ export default function App() {
     </>
   );
 }
-//<button onClick={toggle}>Toggle between 2 and 3 slides</button>
