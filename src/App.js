@@ -46,10 +46,17 @@ export default function App() {
 
   return (
     <>
-      Vote: {vote} {voteIndex}
+      Vote: {vote}
+      <br />
+      Index: {voteIndex}
+      <br />
+      Slides: {votingComponents.length}
+      <br />
       <SwipeableViews index={voteIndex} onChangeIndex={submitVote}>
         {votingComponents.map((s) => (
-          <div style={slideStyle}>{s}</div>
+          <div key={s} style={slideStyle}>
+            {s}
+          </div>
         ))}
       </SwipeableViews>
       <button onClick={voteNoOpinion}>No opinion</button>
